@@ -2,6 +2,9 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { ModalProvider } from "@/context/ContactContext";
+import CrumplerHealthForm from "@/components/modal/contact/ContactModal";
+import SubmitModal from "@/components/modal/contact/FormSubmitModal";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -19,9 +22,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         className={`${outfit.variable} antialiased flex flex-col items-center`}>
-        <Navbar />
-        <div className="relative w-full">{children}</div>
-        <Footer />
+        <ModalProvider>
+          <Navbar />
+          <div className="relative w-full">{children}</div>{" "}
+          <CrumplerHealthForm />
+          <SubmitModal />
+          <Footer />
+        </ModalProvider>
       </body>
     </html>
   );

@@ -97,3 +97,14 @@ html::-webkit-scrollbar-thumb:hover {
 .gradient {
   @apply bg-[url('/assets/background.svg')] bg-cover bg-no-repeat bg-center;
 }
+
+/* Layer 3: More utilities */
+@layer utilities {
+  input:-webkit-autofill {
+    box-shadow: 0 0 0 1000px transparent inset !important;
+    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+    -webkit-text-fill-color: inherit !important;
+    background-color: transparent !important;
+    transition: background-color 9999s ease-in-out 0s;
+  }
+}

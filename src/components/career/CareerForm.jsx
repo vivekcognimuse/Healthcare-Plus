@@ -62,7 +62,7 @@ const CareerForm = () => {
   };
 
   return (
-    <div className="w-full mt-96 max-w-7xl mx-auto px-4 sm:px-6  md:p-10 gradient backdrop-blur-[30px] shadow-elevated rounded-3xl">
+    <div className="w-full mt-64 max-w-[1480px] mx-auto px-4 sm:px-6  md:p-10 gradient backdrop-blur-[30px] shadow-elevated rounded-3xl">
       {/* Header Section */}
       <div className="bg-black text-white text-xs font-medium px-4 py-2 rounded-full inline-block mb-4">
         Discover Where You Belong
@@ -119,13 +119,13 @@ const CareerForm = () => {
                   <div className="">{job.location}</div>
                   <div className="">{job.department}</div>
                   <div className="mt-3 md:mt-0 flex justify-start md:justify-end">
-                    <a
+                    <button
                       href={job.formLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-black">
+                      className="">
                       View Role
-                    </a>
+                    </button>
                   </div>
                 </div>
               </motion.div>
