@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
@@ -9,22 +10,25 @@ import logo from "@/../public/logo.svg";
 import Button from "./ui/Button";
 import { useModal } from "@/context/ContactContext";
 
+const navItems = [
+  { name: "About", href: "/about" },
+  { name: "Careers", href: "/careers" },
+  { name: "News", href: "/news" },
+];
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { openFormModal } = useModal();
   const pathname = usePathname();
 
-  const navItems = [
-    { name: "About", href: "/about" },
-    { name: "Careers", href: "/careers" },
-    { name: "News", href: "/news" },
-  ];
-
   return (
     <div
-      className={`fixed flex flex-col z-[999] lg:px-8 px-4 top-4 left-0 w-full transition-all duration-300`}
+      className="fixed flex flex-col z-[999] lg:px-8 px-4 top-4 left-0 w-full transition-all duration-300"
       aria-label="Main navigation">
-      <div className="mx-auto max-w-[1480px] w-full rounded-32 px-4 bg-white shadow-elevated">
+      <div
+        className={`mx-auto max-w-[1480px] w-full rounded-32 px-4 bg-gradient-to-r from-white/80 to-white/20 backdrop-blur-[30px] shadow-elevated ${
+          isOpen ? "pb-4" : ""
+        } transition-all duration-300`}>
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="flex items-center">
@@ -56,7 +60,7 @@ const Navbar = () => {
                 href={item.href}
                 className="text-black-800 group hover:text-black transition-colors duration-200">
                 <div className="inline-flex items-center flex-col">
-                  <span>{item.name}</span>
+                  <span className=" text-xl">{item.name}</span>
                   <div
                     className={`h-0.5 rounded-32 bg-purple-500 transition-all duration-200 ${
                       pathname === item.href ? "w-6" : "w-0 group-hover:w-6"
@@ -65,7 +69,6 @@ const Navbar = () => {
                 </div>
               </Link>
             ))}
-
             <Button
               onClick={() => openFormModal()}
               className="px-4 w-fit py-1 text-base">
@@ -74,7 +77,7 @@ const Navbar = () => {
           </nav>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden ">
             <button
               className="text-gray-700 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 rounded-md p-1"
               onClick={() => setIsOpen(!isOpen)}
@@ -89,37 +92,55 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      <div
-        id="mobile-menu"
-        className={`md:hidden ${isOpen ? "block" : "hidden"}`}
-        aria-labelledby="mobile-menu-heading">
-        <div className="px-4 pt-2 pb-4 space-y-1 bg-white shadow-lg">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={`block py-2 ${
-                pathname === item.href
-                  ? "text-purple-600 font-medium"
-                  : "text-gray-700 hover:text-purple-600"
-              }`}
-              onClick={() => setIsOpen(false)}>
-              {item.name}
-            </Link>
-          ))}
-          <Button
-            onClick={() => {
-              openFormModal();
-              setIsOpen(false);
-            }}
-            href="/contact"
-            className="block mt-4 px-4 py-2 text-center border border-gray-800 rounded-full text-gray-800 hover:bg-gray-800 hover:text-white">
-            Contact Us
-          </Button>
-        </div>
+        {/* Mobile Menu inside the same container */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              key="mobile-menu"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="flex flex-col md:hidden overflow-hidden space-y-4 pt-4"
+              id="mobile-menu"
+              aria-labelledby="mobile-menu-heading">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="text-black-800  hover:text-black transition-colors duration-200">
+                  <div className="inline-flex text-xl  items-center flex-col">
+                    <span
+                      className={`${
+                        pathname === item.href
+                          ? " text-purple-600"
+                          : " text-black-800 hover:text-purple-600"
+                      }`}>
+                      {item.name}
+                    </span>
+                    <div
+                      className={`h-0.5 rounded-32 bg-purple-500 transition-all duration-200 ${
+                        pathname === item.href ? "w-6" : "w-0 hover:w-6"
+                      }`}
+                    />
+                  </div>
+                </Link>
+              ))}
+
+              <Button
+                onClick={() => {
+                  openFormModal();
+                  setIsOpen(false);
+                }}
+                href="/contact"
+                className="w-full">
+                Contact Us
+              </Button>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );

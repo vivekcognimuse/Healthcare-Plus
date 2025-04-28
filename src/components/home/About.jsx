@@ -9,7 +9,7 @@ const About = () => {
         <span className="text-black">Healthcare</span>
       </p>
 
-      <p className="text-black-800 p-top md:max-w-7/12 max-w-8/12 ml-auto md:text-4xl text-lg sm:text-2xl">
+      <p className="text-black-800 p-top mb-8 md:max-w-7/12 max-w-8/12 ml-auto md:text-4xl text-lg sm:text-2xl">
         <span className="text-black">Crumpler Health</span> has re-imagined the
         healthcare experience with{" "}
         <span className="text-black"> AI agents complementing clinicians</span>{" "}

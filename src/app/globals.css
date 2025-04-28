@@ -73,7 +73,7 @@
 html {
   scrollbar-width: thin; /* Firefox */
   scrollbar-color: #9b53db transparent; /* Firefox */
-  @apply selection:bg-purple-400 selection:text-black;
+  @apply selection:bg-purple-400;
 }
 
 html::-webkit-scrollbar {
@@ -95,7 +95,7 @@ html::-webkit-scrollbar-thumb:hover {
 }
 
 .gradient {
-  @apply bg-[url('/assets/background.svg')] bg-cover bg-no-repeat bg-center;
+  @apply bg-[url('/assets/background.png')] bg-cover bg-no-repeat bg-center;
 }
 
 /* Layer 3: More utilities */

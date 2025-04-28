@@ -13,7 +13,7 @@ const outfit = Outfit({
 });
 
 export const metadata = {
-  title: "Crumpler Health",
+  title: "Tala Health",
   description: "",
 };
 

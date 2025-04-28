@@ -19,7 +19,7 @@ const CrumplerHealthForm = () => {
     handleSubmit,
   } = useContactForm();
 
-  const onSubmit = () => {
+  const onSubmit = (e) => {
     e.preventDefault();
 
     handleSubmit(
@@ -53,26 +53,26 @@ const CrumplerHealthForm = () => {
             </div>
             <button
               onClick={closeFormModal}
-              className="text-black-800 cursor-pointer">
+              className="text-black/80 cursor-pointer">
               <X size={24} />
             </button>
           </div>
 
-          <p className="text-black-800 mb-4">
+          <p className="text-black/80 mb-4">
             Be the first to know when Crumpler Health launches near you.
           </p>
 
-          <h2 className="text-2xl text-gray-800 font-normal mb-8">
+          <h2 className="text-4xl text-black/80 font-light mb-8">
             We're not live in your region yet — join our wait-list to{" "}
-            <span className="font-bold">stay in the loop</span>
+            <span className="font-normal text-black">stay in the loop</span>
           </h2>
 
-          <form onSubmit={onSubmit} noValidate>
+          <form onSubmit={onSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div>
                 <label
                   htmlFor="firstName"
-                  className="block text-sm text-black-800 mb-1">
+                  className="block text-black/80 font-normal mb-4">
                   First Name
                 </label>
                 <input
@@ -96,7 +96,7 @@ const CrumplerHealthForm = () => {
               <div>
                 <label
                   htmlFor="lastName"
-                  className="block text-sm text-black-800 mb-1">
+                  className="block text-black/80 font-normal mb-4">
                   Last Name
                 </label>
                 <input
@@ -118,7 +118,7 @@ const CrumplerHealthForm = () => {
               <div>
                 <label
                   htmlFor="organization"
-                  className="block text-sm text-black-800 mb-1">
+                  className="block  text-black/80 font-normal mb-4">
                   Organization
                 </label>
                 <input
@@ -135,7 +135,7 @@ const CrumplerHealthForm = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm text-black-800 mb-1">
+                  className="block  text-black/80 font-normal mb-4">
                   Email
                 </label>
                 <input
@@ -157,7 +157,7 @@ const CrumplerHealthForm = () => {
             </div>
 
             <div className="mb-6">
-              <label className="block text-sm text-black-800 mb-1">
+              <label className="block  text-black/80 font-normal mb-4">
                 Inquiry Type
               </label>
               <div className="flex flex-wrap gap-4 mt-2">
@@ -169,15 +169,10 @@ const CrumplerHealthForm = () => {
                       value="general"
                       checked={formData.inquiryType === "general"}
                       onChange={handleChange}
-                      className="appearance-none h-5 w-5 border border-black-700 rounded-full checked:border-4 checked:border-purple-500"
+                      className="appearance-none h-5 w-5 border border-black-700 rounded-full  checked:bg-purple-500"
                     />
-                    {formData.inquiryType === "general" && (
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                      </div>
-                    )}
                   </div>
-                  <span className="ml-2 text-black-800">
+                  <span className="ml-2 text-black/80">
                     General information
                   </span>
                 </label>
@@ -189,10 +184,10 @@ const CrumplerHealthForm = () => {
                       value="press"
                       checked={formData.inquiryType === "press"}
                       onChange={handleChange}
-                      className="appearance-none h-5 w-5 border border-black-700 rounded-full checked:border-4 checked:border-purple-500"
+                      className="appearance-none h-5 w-5 border border-black-700 rounded-full  checked:bg-purple-500"
                     />
                   </div>
-                  <span className="ml-2 text-black-800">Press</span>
+                  <span className="ml-2 text-black/80">Press</span>
                 </label>
                 <label className="flex items-center">
                   <div className="relative">
@@ -202,10 +197,10 @@ const CrumplerHealthForm = () => {
                       value="careers"
                       checked={formData.inquiryType === "careers"}
                       onChange={handleChange}
-                      className="appearance-none h-5 w-5 border border-black-700 rounded-full checked:border-4 checked:border-purple-500"
+                      className="appearance-none h-5 w-5 border border-black-700 rounded-full  checked:bg-purple-500"
                     />
                   </div>
-                  <span className="ml-2 text-black-800">Careers</span>
+                  <span className="ml-2 text-black/80">Careers</span>
                 </label>
                 <label className="flex items-center">
                   <div className="relative">
@@ -215,48 +210,48 @@ const CrumplerHealthForm = () => {
                       value="partnerships"
                       checked={formData.inquiryType === "partnerships"}
                       onChange={handleChange}
-                      className="appearance-none h-5 w-5 border border-black-700 rounded-full checked:border-4 checked:border-purple-500"
+                      className="appearance-none h-5 w-5 border border-black-700 rounded-full  checked:bg-purple-500"
                     />
                   </div>
-                  <span className="ml-2 text-black-800">Partnerships</span>
+                  <span className="ml-2 text-black/80">Partnerships</span>
                 </label>
               </div>
-              {errors.inquiryType && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.inquiryType}
-                </p>
-              )}
             </div>
 
             <div className="mb-6">
               <label
                 htmlFor="message"
-                className="block text-sm text-black-800 mb-1">
+                className="block  text-black/80 font-normal mb-4">
                 Your Message
               </label>
-              <textarea
+              <input
                 id="message"
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 placeholder="Let us know how we can help..."
-                className="w-full border-b border-black-700 pb-2 focus:outline-none focus:border-purple-500 min-h-8"
+                className={`w-full border-b ${
+                  errors.message ? "border-red-500" : "border-black-700"
+                } pb-2 focus:outline-none focus:border-purple-500`}
               />
+              {errors.message && (
+                <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+              )}
             </div>
 
-            <div className="mb-8">
+            <div className="mb-8  flex items-center ">
               <label className="flex items-center cursor-pointer">
-                <div className="relative">
+                <div className="relative flex items-center">
                   <input
                     type="checkbox"
                     name="updates"
                     checked={formData.updates}
                     onChange={handleChange}
-                    className="appearance-none h-5 w-5 border border-black-700 rounded-sm checked:bg-purple-500 checked:border-purple-500"
+                    className="appearance-none h-5 w-5 border border-black-700 rounded-full checked:bg-purple-500 "
                   />
                   {formData.updates && (
-                    <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="absolute   top-1.5 left-1 flex items-center justify-center">
                       <svg
                         width="12"
                         height="9"
@@ -274,7 +269,7 @@ const CrumplerHealthForm = () => {
                     </div>
                   )}
                 </div>
-                <span className="ml-2 text-black-800 text-sm">
+                <span className="ml-2 text-black/80 ">
                   Keep me updated on product news and features via email
                 </span>
               </label>

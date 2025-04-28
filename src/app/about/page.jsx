@@ -10,12 +10,12 @@ const page = () => {
         <p className="w-fit mb-4 font-light px-4 py-1 bg-black text-white rounded-32">
           Mission & Vision
         </p>
-        <p className=" text-3xl mb-8 text-black-800 sm:text-4xl md:text-6xl">
+        <p className=" text-3xl mb-8 text-black-800 leading-normal sm:text-4xl md:text-6xl">
           Making world-class healthcare
           <span className="text-black"> accessible </span> to
           <span className="text-black"> anyone, anytime, anywhere. </span>
         </p>
-        <p className="text-black-800 font-light leading-tight  md:max-w-9/12 max-w-9/12 ml-auto md:text-4xl text-lg sm:text-2xl">
+        <p className="text-black-800 font-light leading-normal  md:max-w-9/12 max-w-9/12 ml-auto md:text-4xl text-lg sm:text-2xl">
           We believe that
           <span className="text-black font-normal">
             {" "}
@@ -37,7 +37,7 @@ const page = () => {
         <p className=" text-3xl mb-8 text-black-800 sm:text-4xl md:text-6xl">
           Get A<span className="text-black"> Real Diagnosis </span>
         </p>
-        <p className="text-black-800 font-light leading-tight  md:max-w-9/12 max-w-9/12 ml-auto md:text-4xl text-lg sm:text-2xl">
+        <p className="text-black-800 font-light leading-normal  md:max-w-9/12 max-w-9/12 ml-auto md:text-4xl text-lg sm:text-2xl">
           Instead of worrying over worst-case scenarios from searching your
           symptoms online,
           <span className="text-black font-normal">

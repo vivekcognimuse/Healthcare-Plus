@@ -3,7 +3,7 @@ import React from "react";
 const ProblemStatement = () => {
   return (
     <div className="h-screen flex items-center justify-center">
-      <p className="md:text-5xl  text-black-400 leading-tight  text-3xl sm:text-4xl">
+      <p className="md:text-5xl  text-black-400 leading-normal  text-3xl sm:text-4xl">
         Today's
         <span className="text-black"> healthcare experience is broken. </span>
         It&apos;s
