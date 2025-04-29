@@ -5,6 +5,7 @@ import image1 from "@/../public/assets/1.webp";
 import image3 from "@/../public/assets/2.webp";
 import image2 from "@/../public/assets/3.webp";
 import { Timer } from "lucide-react";
+import Contact from "./Contact";
 
 const Services = () => {
   const servicesData = [
@@ -35,10 +36,24 @@ const Services = () => {
   ];
   return (
     <div>
+      <p className="w-fit mb-4 font-light px-4 py-1 bg-black text-white rounded-32">
+        Expertise
+      </p>
       <h3 className="text-black/80 leading-normal text-4xl mb-8 sm:text-5xl  md:text-6xl">
-        Patient First, <br /> Prioritizing
-        <span className="text-black"> You</span>
+        Scientific and Medical
+        <span className="text-black"> Experience.</span>
       </h3>
+
+      <ExpandableCards services={servicesData} />
+
+      <p className="w-fit mb-4 font-light px-4 py-1 bg-black text-white rounded-32">
+        Our Solution
+      </p>
+      <h3 className="text-black/80 leading-normal text-4xl mb-8 sm:text-5xl  md:text-6xl">
+        Get A Real
+        <span className="text-black">Diagnosis</span>
+      </h3>
+
       <p className="text-black-800  font-light mb-8 md:max-w-7/12 max-w-8/12 ml-auto md:text-4xl text-lg sm:text-2xl">
         {" "}
         <span className="text-black"></span>
@@ -52,7 +67,6 @@ const Services = () => {
         with top tier{" "}
         <span className="text-black"> human licensed clinical support </span>
       </p>
-      <ExpandableCards services={servicesData} />
     </div>
   );
 };

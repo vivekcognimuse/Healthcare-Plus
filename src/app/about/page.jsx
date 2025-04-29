@@ -1,7 +1,8 @@
 import Hero from "@/components/about/Hero";
 import Contact from "@/components/about/Contact";
-import Services from "@/components/home/Services";
+import Services from "@/components/about/Services";
 import React from "react";
+import AdvisoryBoard from "@/components/about/Advisory";
 
 const page = () => {
   return (
@@ -27,10 +28,12 @@ const page = () => {
             {" "}
             Crumpler Health&apos;s AI agent ensures that care reaches you
           </span>
-          —wherever you are, whenever you need it.
+          — wherever you are, whenever you need it.
         </p>
 
         <Services />
+
+        <AdvisoryBoard />
         <p className="w-fit mb-4 font-light px-4 py-1 bg-black text-white rounded-32">
           Our Solution
         </p>
