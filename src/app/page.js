@@ -1,3 +1,4 @@
+// File: src/app/page.js
 "use client";
 import About from "@/components/home/About";
 
@@ -9,7 +10,7 @@ import image1 from "@/../public/assets/1.webp";
 import image3 from "@/../public/assets/2.webp";
 import image2 from "@/../public/assets/3.webp";
 import { Timer } from "lucide-react";
-
+import NewsSection from "@/components/blog/NewsSection";
 export default function Home() {
   const servicesData = [
     {
@@ -47,6 +48,7 @@ export default function Home() {
         <Services services={servicesData} />
       </div>
       {/* <Contact /> */}
+      <NewsSection />
     </div>
   );
 }
