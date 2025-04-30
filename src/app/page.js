@@ -1,54 +1,42 @@
 // File: src/app/page.js
 "use client";
+import Footer from "@/components/Footer";
 import About from "@/components/home/About";
+import Contact from "@/components/home/Contact";
 
 import Hero from "@/components/home/Hero";
 import ProblemStatement from "@/components/home/ProblemStatement";
 import Services from "@/components/home/Services";
 
-import image1 from "@/../public/assets/1.webp";
-import image3 from "@/../public/assets/2.webp";
-import image2 from "@/../public/assets/3.webp";
-import { Timer } from "lucide-react";
-import NewsSection from "@/components/blog/NewsSection";
-export default function Home() {
-  const servicesData = [
-    {
-      id: 1,
-      title: "Instant Appointments",
-      description:
-        "Connect with Crumpler's AI agent anytime, anywhere - 24x7 access.",
-      image: "/images/patient-phone.jpg", // Path to your image
-      icon: Timer, // Path to your icon image
-    },
-    {
-      id: 2,
-      title: "On-call clinicians",
-      description:
-        "Get support from a world-class team of licensed clinicians for any health condition.",
-      image: image2,
-      icon: Timer,
-    },
-    {
-      id: 3,
-      title: "Extensive clinic network",
-      description:
-        "Visit nearby clinics for bloodwork, diagnostics, or in-person testing - seamlessly integrated.",
-      image: image3,
-      icon: Timer,
-    },
-  ];
+import InsuranceMarquee from "@/components/ui/imageMarquee";
+import RevealAnimation from "@/components/ui/revealAnimation";
 
+
+export default function Home() {
   return (
     <div className="max-w-[1480px] md:px-0 mx-auto pt-28 ">
       <Hero />
       <div className="px-4">
         <About />
         <ProblemStatement />
-        <Services services={servicesData} />
+        <RevealAnimation type="slide" direction="up">
+          <div className="   max-w-[1480px] shadow-elevated rounded-32 w-full p-4 sm:p-6 md:p-10 gradient backdrop-blur-[30px] mx-auto">
+            <Services />
+            <RevealAnimation type="slide" direction="up" delay={0.5}>
+              <InsuranceMarquee />
+            </RevealAnimation>
+            <RevealAnimation type="slide" direction="up" delay={0.5}>
+              <Contact />
+            </RevealAnimation>
+          </div>
+        </RevealAnimation>
       </div>
+
       {/* <Contact /> */}
       <NewsSection />
+
+      <Footer />
+
     </div>
   );
 }

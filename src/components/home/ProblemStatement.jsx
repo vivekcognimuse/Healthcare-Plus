@@ -1,19 +1,24 @@
 import React from "react";
+import { EnhancedTextReveal } from "../ui/TextReveal";
 
 const ProblemStatement = () => {
+  const healthcareText =
+    "Today's healthcare experience is broken. It's slow, costly, and fragmented — involving endless back-and-forth between doctor's offices, urgent care, hospitals, labs, and specialists. Patients wait weeks for answers, only to be seen by the wrong clinician, with incomplete data delaying care even further.";
+
+  // List of phrases that should be emphasized (in full black)
+  const emphasisPhrases = [
+    "healthcare experience is broken",
+    "slow, costly, and fragmented",
+    "Patients wait weeks for answers",
+    "delaying care",
+  ];
+
   return (
-    <div className="h-screen flex items-center justify-center">
-      <p className="md:text-5xl  text-black-400 leading-normal  text-3xl sm:text-4xl">
-        Today's
-        <span className="text-black"> healthcare experience is broken. </span>
-        It&apos;s
-        <span className="text-black"> slow, costly, and fragmented </span> —
-        involving endless back-and-forth between doctor&apos;s offices, urgent
-        care, hospitals, labs, and specialists.
-        <span className="text-black"> Patients wait weeks for answers</span>,
-        only to be seen by the wrong clinician, with incomplete data
-        <span className="text-black"> delaying care </span> even further.
-      </p>
+    <div className="w-full">
+      <EnhancedTextReveal
+        text={healthcareText}
+        emphasisWords={emphasisPhrases}
+      />
     </div>
   );
 };

@@ -1,98 +1,78 @@
 "use client";
+import React from "react";
+import ExpandableCards from "../service/ExpandableCards";
+import image1 from "@/../public/assets/home1.webp";
+import image3 from "@/../public/assets/home2.jpg";
+import image2 from "@/../public/assets/home3.webp";
+import {
+  Calendar,
+  CalendarRange,
+  Headphones,
+  Hospital,
+  Timer,
+} from "lucide-react";
 
-import React, { useState } from "react";
-import Image from "next/image";
-import { motion } from "motion/react";
-import { Timer } from "lucide-react";
-const Service = ({ services }) => {
-  // State to track the active card
-  const [activeCardId, setActiveCardId] = useState(1);
+import MobileCardCarousel from "../service/mblCardCarousal";
+import TabletCardCarousel from "../service/TableCardCorousal";
+import RevealAnimation from "../ui/revealAnimation";
 
-  // Handle click on a card
-  const handleCardClick = (id) => {
-    setActiveCardId(id);
-  };
-
+const Services = () => {
+  const servicesData = [
+    {
+      id: 1,
+      title: "Instant Appointments",
+      description:
+        "Connect with Tala's AI agent anytime, anywhere - 24x7 access.",
+      image: image1, // Path to your image
+      icon: CalendarRange, // Path to your icon image
+    },
+    {
+      id: 2,
+      title: "On-call clinicians",
+      description:
+        "Get support from a world-class team of licensed clinicians for any health condition.",
+      image: image2,
+      icon: Headphones,
+    },
+    {
+      id: 3,
+      title: "Extensive clinic network",
+      description:
+        "Visit nearby clinics for bloodwork, diagnostics, or in-person testing - seamlessly integrated.",
+      image: image3,
+      icon: Hospital,
+    },
+  ];
   return (
-    <div className="w-full px-4 py-8">
-      <div className="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto">
-        {services.map((service) => {
-          const isActive = service.id === activeCardId;
-
-          return (
-            <motion.div
-              key={service.id}
-              className={`
-                relative rounded-2xl cursor-pointer overflow-hidden transition-all duration-500
-                ${isActive ? "z-10 md:w-1/2" : "z-0 md:w-1/4"}
-              `}
-              onClick={() => handleCardClick(service.id)}
-              layout
-              transition={{
-                layout: {
-                  duration: 0.5,
-                  ease: "easeInOut",
-                },
-              }}>
-              {/* Background for active state */}
-              {isActive && (
-                <motion.div
-                  className="absolute inset-0 rounded-2xl overflow-hidden"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}>
-                  {service.image && (
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      className="object-cover rounded-2xl"
-                      priority
-                    />
-                  )}
-                </motion.div>
-              )}
-
-              {/* Content container with conditional background */}
-              <motion.div
-                className={`
-                  relative z-10 h-64 p-6 flex flex-col justify-between
-                  ${
-                    !isActive
-                      ? "bg-[#f7f0ff]"
-                      : "bg-red-500/20 backdrop-blur-md"
-                  }
-                  rounded-2xl shadow-md transition-all duration-300
-                `}>
-                <div>
-                  {/* Icon */}
-                  <div className="w-12 h-12 mb-4 bg-white rounded-full flex items-center justify-center">
-                    <Timer className="w-8 h-8 text-red-500" />
-                  </div>
-
-                  {/* Title */}
-                  <h3
-                    className={`text-xl font-bold mb-2 ${
-                      isActive ? "text-white" : "text-gray-800"
-                    }`}>
-                    {service.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p
-                    className={`${
-                      isActive ? "text-white/90" : "text-gray-600"
-                    }`}>
-                    {service.description}
-                  </p>
-                </div>
-              </motion.div>
-            </motion.div>
-          );
-        })}
-      </div>
+    <div className="">
+      <RevealAnimation type="slide" direction="left" delay={0.5}>
+        <h3 className="text-black/80 leading-normal text-4xl mb-8 sm:text-5xl  md:text-6xl">
+          Patient First, <br /> Prioritizing
+          <span className="text-black"> You</span>
+        </h3>{" "}
+      </RevealAnimation>
+      <RevealAnimation type="slide" direction="right" delay={0.5}>
+        <p className="text-black-800  font-light mb-8 md:max-w-7/12 max-w-8/12 ml-auto md:text-4xl text-lg sm:text-2xl">
+          {" "}
+          <span className="text-black"></span>
+          Tala Health is{" "}
+          <span className="text-black"> built with the patient in mind </span>,
+          combining the leading
+          <span className="text-black">
+            {" "}
+            artificial intelligence research
+          </span>{" "}
+          with top tier{" "}
+          <span className="text-black"> human licensed clinical support </span>
+        </p>
+      </RevealAnimation>
+      <RevealAnimation type="slide" direction="up" delay={0.5}>
+        <ExpandableCards services={servicesData} />
+        <MobileCardCarousel services={servicesData} />
+        <TabletCardCarousel services={servicesData} />
+      </RevealAnimation>
     </div>
   );
 };
 
-export default Service;
+export default Services;

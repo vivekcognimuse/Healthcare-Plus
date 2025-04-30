@@ -48,9 +48,9 @@
 }
 
 @layer base {
-  /* body {
-    @apply font-light;
-  } */
+  body {
+    @apply leading-normal;
+  }
 
   h1,
   h2,
