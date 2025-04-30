@@ -1,3 +1,4 @@
+// File: src/app/page.js
 "use client";
 import Footer from "@/components/Footer";
 import About from "@/components/home/About";
@@ -6,8 +7,10 @@ import Contact from "@/components/home/Contact";
 import Hero from "@/components/home/Hero";
 import ProblemStatement from "@/components/home/ProblemStatement";
 import Services from "@/components/home/Services";
+
 import InsuranceMarquee from "@/components/ui/imageMarquee";
 import RevealAnimation from "@/components/ui/revealAnimation";
+
 
 export default function Home() {
   return (
@@ -28,7 +31,12 @@ export default function Home() {
           </div>
         </RevealAnimation>
       </div>
+
+      {/* <Contact /> */}
+      <NewsSection />
+
       <Footer />
+
     </div>
   );
 }

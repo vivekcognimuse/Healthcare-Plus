@@ -1,3 +1,4 @@
+// File: src/app/layout.js
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
