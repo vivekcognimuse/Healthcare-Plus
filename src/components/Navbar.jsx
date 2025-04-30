@@ -35,18 +35,14 @@ const Navbar = () => {
             <Link
               href="/"
               className="flex items-center"
-              aria-label="Crumpler Health logo"
+              aria-label="Tala Health logo"
               onClick={(e) => {
                 if (pathname === "/") {
                   e.preventDefault();
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }
               }}>
-              <Image
-                src={logo}
-                alt="Crumpler Health logo"
-                className="h-6 w-fit"
-              />
+              <Image src={logo} alt="Tala Health logo" className="h-6 w-fit" />
             </Link>
           </div>
 

@@ -44,7 +44,7 @@ const AdvisorCard = ({ advisor }) => {
             alt={advisor.name}
             layout="fill"
             objectFit="cover"
-            className="rounded-xl  bg-red-500"
+            className="rounded-xl object-top  "
           />
         </div>
       </motion.div>

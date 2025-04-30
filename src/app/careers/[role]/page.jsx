@@ -2,6 +2,7 @@ import CareerForm from "@/components/careers/CareerForm";
 import Image from "next/image";
 import roleHero from "@/../public/assets/roleHero.png";
 import RoleDetails from "@/components/careers/RoleDetails";
+import RevealAnimation from "@/components/ui/revealAnimation";
 const Page = ({ params }) => {
   const { role } = params;
 
@@ -14,8 +15,9 @@ const Page = ({ params }) => {
           className=" -z-0 md:h-[80vh] w-full h-fit md:w-fit"
         />
       </div>
-
-      <RoleDetails role={role} />
+      <RevealAnimation type="slide" direction="up" delay={0.5}>
+        <RoleDetails role={role} />
+      </RevealAnimation>
     </div>
   );
 };

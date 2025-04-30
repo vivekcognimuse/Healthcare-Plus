@@ -1,52 +1,93 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
-import { Timer } from "lucide-react";
-const ExpandableCards = ({ services }) => {
-  // State to track the active card
-  const [activeCardId, setActiveCardId] = useState(1);
 
-  // Handle click on a card
-  const handleCardClick = (id) => {
-    setActiveCardId(id);
+const ExpandableCards = ({ services }) => {
+  const [activeCardId, setActiveCardId] = useState(1);
+  const [containerHeight, setContainerHeight] = useState(0);
+  const containerRef = useRef(null);
+
+  const calculateFlexBasis = (isActive, totalCards) => {
+    const totalInactiveParts = totalCards - 1;
+    const totalParts = 2 + totalInactiveParts;
+    const scaleFactor = 0.95;
+
+    if (isActive) {
+      return `${(2 / totalParts) * 100 * scaleFactor}%`;
+    } else {
+      return `${(1 / totalParts) * 100 * scaleFactor}%`;
+    }
   };
 
+  useEffect(() => {
+    const updateHeight = () => {
+      if (containerRef.current) {
+        const containerWidth = containerRef.current.offsetWidth;
+        const totalCards = services.length;
+        const totalParts = 2 + (totalCards - 1);
+
+        const effectiveWidth = containerWidth - (services.length - 1) * 32;
+        const inactiveCardWidth = (effectiveWidth / totalParts) * 0.95;
+        const cardHeight = Math.max(inactiveCardWidth * 1.3, 224);
+
+        setContainerHeight(cardHeight);
+      }
+    };
+
+    updateHeight();
+    window.addEventListener("resize", updateHeight);
+
+    return () => window.removeEventListener("resize", updateHeight);
+  }, [services.length]);
+
   return (
-    <div className="w-full px-4 py-8">
-      <div className="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto">
-        {services.map((service) => {
-          const isActive = service.id === activeCardId;
+    <div className="w-full hidden lg:block py-8">
+      <div
+        ref={containerRef}
+        className="flex flex-col md:flex-row justify-between gap-8 w-full mx-auto min-h-80"
+        style={{
+          height: containerHeight > 0 ? `${containerHeight}px` : "auto",
+        }}>
+        {services.map(({ id, title, description, image, icon: Icon }) => {
+          const isActive = id === activeCardId;
+          const flexBasis = calculateFlexBasis(isActive, services.length);
 
           return (
             <motion.div
-              key={service.id}
+              key={id}
               className={`
-                relative rounded-2xl cursor-pointer overflow-hidden transition-all duration-500
-                ${isActive ? "z-10 md:w-1/2" : "z-0 md:w-1/4"}
+                relative rounded-2xl cursor-pointer h-full
+                transition-all duration-700
+                ${isActive ? "z-10" : "z-0"}
               `}
-              onClick={() => handleCardClick(service.id)}
+              style={{
+                flexGrow: 0,
+                flexShrink: 0,
+                flexBasis: flexBasis,
+              }}
+              onMouseEnter={() => setActiveCardId(id)}
               layout
               transition={{
                 layout: {
-                  duration: 0.5,
-                  ease: "easeInOut",
+                  duration: 0.8,
+                  ease: "easeOut",
                 },
               }}>
               {/* Background for active state */}
               {isActive && (
                 <motion.div
                   className="absolute inset-0 rounded-2xl overflow-hidden"
-                  initial={{ opacity: 0 }}
+                  initial={{ opacity: 1 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}>
-                  {service.image && (
+                  transition={{ duration: 0.7, ease: "easeOut" }}>
+                  {image && (
                     <Image
-                      src={service.image}
-                      alt={service.title}
+                      src={image}
+                      alt={title}
                       fill
-                      className="object-cover rounded-2xl"
+                      className="object-cover object-left rounded-2xl"
                       priority
                     />
                   )}
@@ -55,35 +96,42 @@ const ExpandableCards = ({ services }) => {
 
               {/* Content container with conditional background */}
               <motion.div
-                className={`relative z-10 h-72 p-6 flex flex-col justify-between
-                  ${!isActive ? "bg-[#f7f0ff]" : " "}
-                  rounded-2xl shadow-md transition-all duration-300
+                className={`
+                  relative z-10 h-full p-6 flex flex-col justify-between
+                  ${!isActive ? "bg-white" : ""} 
+                  rounded-2xl shadow-md transition-all duration-700
                 `}>
                 <div
-                  className={` p-4  h-full rounded-32   ${
-                    isActive
-                      ? "max-w-[50%] backdrop-blur-[30px] bg-white/20"
-                      : "max-w-full"
-                  }`}>
-                  {/* Icon */}
-                  <div className="w-12 h-12 mb-4 bg-white rounded-full flex items-center justify-center">
-                    <Timer className="w-8 h-8 text-red-500" />
+                  className={`
+                    p-4 h-full rounded-2xl
+                    ${
+                      isActive
+                        ? "max-w-[45%] overflow-hidden backdrop-blur-[30px] bg-black/10"
+                        : "max-w-full"
+                    }
+                  `}>
+                  {/* Dynamic Icon */}
+                  <div
+                    className={`w-12 h-12 mb-4  border border-white rounded-full flex items-center justify-center ${
+                      isActive ? "bg-transparent" : "bg-black"
+                    }`}>
+                    {Icon && <Icon className="w-8 h-8 text-white" />}
                   </div>
 
                   {/* Title */}
                   <h3
-                    className={`text-xl font-bold mb-2 ${
+                    className={` mb-4 text-4xl font-medium  ${
                       isActive ? "text-white" : "text-gray-800"
                     }`}>
-                    {service.title}
+                    {title}
                   </h3>
 
                   {/* Description */}
                   <p
-                    className={`${
+                    className={`text-lg font-light ${
                       isActive ? "text-white/90" : "text-gray-600"
                     }`}>
-                    {service.description}
+                    {description}
                   </p>
                 </div>
               </motion.div>

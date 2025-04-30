@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import { ModalProvider } from "@/context/ContactContext";
 import CrumplerHealthForm from "@/components/modal/contact/ContactModal";
 import SubmitModal from "@/components/modal/contact/FormSubmitModal";
+import ScrollToTop from "@/components/ui/ScrollToTop";
+import SmoothScroll from "@/components/ui/smoothScroll";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -22,13 +24,15 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         className={`${outfit.variable} antialiased flex flex-col items-center`}>
-        <ModalProvider>
-          <Navbar />
-          <div className="relative w-full">{children}</div>{" "}
-          <CrumplerHealthForm />
-          <SubmitModal />
-          <Footer />
-        </ModalProvider>
+        <SmoothScroll>
+          <ModalProvider>
+            <Navbar />
+            <div className="relative w-full">{children}</div>{" "}
+            <CrumplerHealthForm />
+            <SubmitModal />
+            <ScrollToTop />
+          </ModalProvider>
+        </SmoothScroll>
       </body>
     </html>
   );
