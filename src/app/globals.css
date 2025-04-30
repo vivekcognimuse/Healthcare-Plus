@@ -1,26 +1,110 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* primary */
+  --color-purple-50: #faf6fe;
+  --color-purple-100: #f3eafd;
+  --color-purple-200: #e9d9fb;
+  --color-purple-300: #d8bbf7;
+  --color-purple-400: #c090f0;
+  --color-purple-500: #a965e7;
+  --color-purple-600: #9b53db;
+  --color-purple-700: #7e33bd;
+  --color-purple-800: #6b2e9b;
+  --color-purple-900: #57267d;
+  --color-purple-950: #3a105b;
+
+  /* Black */
+  --color-black-50: #f6f6f6;
+  --color-black-100: #e7e7e7;
+  --color-black-200: #d1d1d1;
+  --color-black-300: #b0b0b0;
+  --color-black-400: #888888;
+  --color-black-500: #6d6d6d;
+  --color-black-600: #5d5d5d;
+  --color-black-700: #4f4f4f;
+  --color-black-800: #454545;
+  --color-black-900: #3d3d3d;
+  --color-black-950: #000000;
+
+  /* White */
+  --color-white-50: #ffffff;
+  --color-white-100: #efefef;
+  --color-white-200: #dcdcdc;
+  --color-white-300: #b0b0b0;
+  --color-white-400: #989898;
+  --color-white-500: #7c7c7c;
+  --color-white-600: #656565;
+  --color-white-700: #525252;
+  --color-white-800: #464646;
+  --color-white-900: #3d3d3d;
+  --color-white-950: #292929;
+
+  /* shadow */
+  --shadow-elevated: 0px 6px 6px 0px rgba(0, 0, 0, 0.1);
+
+  /* Radius */
+  --radius-32: 32px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  body {
+    @apply leading-normal;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-normal;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  .p-top {
+    @apply pt-8 md:pt-16;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+html {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #9b53db transparent; /* Firefox */
+  @apply selection:bg-purple-400;
+}
+
+html::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #9b53db;
+  border-radius: 20px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background-color: #7e33bd;
+}
+
+.gradient {
+  @apply bg-[url('/assets/background.png')] bg-cover bg-no-repeat bg-center;
+}
+
+/* Layer 3: More utilities */
+@layer utilities {
+  input:-webkit-autofill {
+    box-shadow: 0 0 0 1000px transparent inset !important;
+    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+    -webkit-text-fill-color: inherit !important;
+    background-color: transparent !important;
+    transition: background-color 9999s ease-in-out 0s;
+  }
 }
