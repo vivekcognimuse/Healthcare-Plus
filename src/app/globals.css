@@ -68,6 +68,9 @@
   .p-top {
     @apply pt-8 md:pt-16;
   }
+  .p-side {
+    @apply px-4 sm:px-8 md:px-16 lg:px-20;
+  }
 }
 
 html {

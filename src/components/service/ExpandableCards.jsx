@@ -15,9 +15,9 @@ const ExpandableCards = ({ services }) => {
     const scaleFactor = 0.95;
 
     if (isActive) {
-      return `${(2 / totalParts) * 100 * scaleFactor}%`;
+      return `${(2 / totalParts) * 98 * scaleFactor}%`;
     } else {
-      return `${(1 / totalParts) * 100 * scaleFactor}%`;
+      return `${(1 / totalParts) * 98 * scaleFactor}%`;
     }
   };
 
@@ -30,7 +30,7 @@ const ExpandableCards = ({ services }) => {
 
         const effectiveWidth = containerWidth - (services.length - 1) * 32;
         const inactiveCardWidth = (effectiveWidth / totalParts) * 0.95;
-        const cardHeight = Math.max(inactiveCardWidth * 1.3, 224);
+        const cardHeight = Math.max(inactiveCardWidth * 1.5, 224);
 
         setContainerHeight(cardHeight);
       }
@@ -46,7 +46,7 @@ const ExpandableCards = ({ services }) => {
     <div className="w-full hidden lg:block py-8">
       <div
         ref={containerRef}
-        className="flex flex-col md:flex-row justify-between gap-8 w-full mx-auto min-h-80"
+        className="flex flex-col md:flex-row justify-around  w-full mx-auto min-h-80"
         style={{
           height: containerHeight > 0 ? `${containerHeight}px` : "auto",
         }}>
@@ -58,7 +58,7 @@ const ExpandableCards = ({ services }) => {
             <motion.div
               key={id}
               className={`
-                relative rounded-2xl cursor-pointer h-full
+                relative rounded-32 cursor-pointer  h-full
                 transition-all duration-700
                 ${isActive ? "z-10" : "z-0"}
               `}
@@ -78,7 +78,7 @@ const ExpandableCards = ({ services }) => {
               {/* Background for active state */}
               {isActive && (
                 <motion.div
-                  className="absolute inset-0 rounded-2xl overflow-hidden"
+                  className="absolute inset-0 rounded-32 overflow-hidden"
                   initial={{ opacity: 1 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.7, ease: "easeOut" }}>
@@ -87,7 +87,7 @@ const ExpandableCards = ({ services }) => {
                       src={image}
                       alt={title}
                       fill
-                      className="object-cover object-left rounded-2xl"
+                      className="object-cover object-left rounded-32"
                       priority
                     />
                   )}
@@ -97,17 +97,17 @@ const ExpandableCards = ({ services }) => {
               {/* Content container with conditional background */}
               <motion.div
                 className={`
-                  relative z-10 h-full p-6 flex flex-col justify-between
+                  relative z-10 h-full p-4 flex flex-col w-fit justify-between
                   ${!isActive ? "bg-white" : ""} 
-                  rounded-2xl shadow-md transition-all duration-700
+                  rounded-32 shadow-elevated transition-all duration-700
                 `}>
                 <div
                   className={`
-                    p-4 h-full rounded-2xl
+                    p-4  h-full rounded-32  w-fit
                     ${
                       isActive
-                        ? "max-w-[45%] overflow-hidden backdrop-blur-[30px] bg-black/10"
-                        : "max-w-full"
+                        ? "max-w-[50%] overflow-hidden backdrop-blur-[30px] bg-black/25"
+                        : "max-w-[100%]"
                     }
                   `}>
                   {/* Dynamic Icon */}
@@ -120,8 +120,8 @@ const ExpandableCards = ({ services }) => {
 
                   {/* Title */}
                   <h3
-                    className={` mb-4 text-4xl font-medium  ${
-                      isActive ? "text-white" : "text-gray-800"
+                    className={` mb-4  font-base text-4xl  ${
+                      isActive ? "text-white " : "text-gray-800 "
                     }`}>
                     {title}
                   </h3>

@@ -132,12 +132,7 @@ const InsuranceMarquee = () => {
 
         {/* Right blur/fade effect */}
         <div
-          className="absolute right-0 z-10 h-full pointer-events-none"
-          style={{
-            width: "80px",
-            background:
-              "linear-gradient(to left, white, rgba(255,255,255,0.8), rgba(255,255,255,0))",
-          }}
+          className="absolute right-0 z-10 h-full w-20 pointer-events-none lg:bg-[linear-gradient(to_left,white,rgba(255,255,255,0.8),rgba(255,255,255,0))] bg-[linear-gradient(to_left,#F7F0FE,rgba(255,255,255,0.8),rgba(255,255,255,0))]"
           aria-hidden="true"
         />
       </div>

@@ -23,7 +23,7 @@ const Navbar = () => {
 
   return (
     <div
-      className="fixed flex flex-col z-[999] lg:px-8 px-4 top-4 left-0 w-full transition-all duration-300"
+      className="fixed flex flex-col z-[999] p-side top-4 left-0 w-full transition-all duration-300"
       aria-label="Main navigation">
       <div
         className={`mx-auto max-w-[1480px] w-full rounded-32 px-4 bg-gradient-to-r from-white/80 to-white/20 backdrop-blur-[30px] shadow-elevated ${

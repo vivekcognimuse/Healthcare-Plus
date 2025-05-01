@@ -96,15 +96,16 @@ const Timeline = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative  flex flex-col h-[200vh]" // Tall section to allow scrolling
+      className="relative flex flex-col h-[200vh]" // Tall section to allow scrolling
     >
       <div
         ref={contentRef}
         className="w-full sticky h-screen flex items-center justify-center top-0 ">
         {/* Desktop Timeline (horizontal) */}
-        <div className="hidden md:flex md:flex-row items-start justify-between w-full mx-auto px-8">
+        <div className="hidden md:flex md:flex-row items-start justify-between w-full mx-auto pl-2">
           {steps.map((step, index) => {
             const isActive = currentIndex === index;
+            const isPreviouslyActive = index < currentIndex;
             const stepProgress = calculateStepProgress(index);
 
             return (
@@ -124,8 +125,10 @@ const Timeline = () => {
                     <div
                       className={`absolute rounded-full transition w-8 h-8 bg-purple-200 opacity-50`}></div>
                     <div
-                      className={`rounded-full  w-4 h-4 transition-all duration-300  ${
-                        isActive ? "scale-150 bg-purple-500" : " bg-purple-400"
+                      className={`rounded-full w-4 h-4 transition-all duration-300 ${
+                        isActive || isPreviouslyActive
+                          ? "scale-150 bg-purple-500"
+                          : "bg-purple-400"
                       }`}></div>
                   </div>
                 </div>
@@ -137,9 +140,9 @@ const Timeline = () => {
                   }`}>
                   <p
                     className={`text-2xl transition-all duration-300 ${
-                      isActive
-                        ? "text-black  font-normal"
-                        : "text-gray-400  font-normal"
+                      isActive || isPreviouslyActive
+                        ? "text-black font-normal"
+                        : "text-gray-400 font-normal"
                     }`}>
                     {step.text}
                   </p>
@@ -153,6 +156,7 @@ const Timeline = () => {
         <div className="md:hidden flex flex-col w-full px-6">
           {steps.map((step, index) => {
             const isActive = currentIndex === index;
+            const isPreviouslyActive = index < currentIndex;
             const stepProgress = calculateStepProgress(index);
 
             return (
@@ -176,7 +180,9 @@ const Timeline = () => {
                       className={`absolute rounded-full transition w-8 h-8 bg-purple-200 opacity-50`}></div>
                     <div
                       className={`rounded-full w-4 h-4 transition-all duration-300 ${
-                        isActive ? "scale-150 bg-purple-500" : "bg-purple-400"
+                        isActive || isPreviouslyActive
+                          ? "scale-150 bg-purple-500"
+                          : "bg-purple-400"
                       }`}></div>
                   </div>
                 </div>
@@ -185,7 +191,7 @@ const Timeline = () => {
                 <div className="flex-1 mb-16">
                   <p
                     className={`font-normal ${
-                      isActive
+                      isActive || isPreviouslyActive
                         ? "text-black font-medium"
                         : "text-gray-400 font-normal"
                     }`}>

@@ -16,14 +16,11 @@ export const EnhancedTextReveal = ({ text, emphasisWords, className }) => {
   const words = text.split(" ");
 
   return (
-    <div ref={targetRef} className={cn("relative z-0 h-[200vh]", className)}>
-      <div
-        className={
-          "sticky top-0 flex h-[50%] items-center px-[1rem] py-[5rem]"
-        }>
+    <div ref={targetRef} className={cn("relative  z-0 h-[200vh]", className)}>
+      <div className={"sticky top-0 flex h-[50%] items-center  py-[5rem]"}>
         <span
           className={
-            "flex flex-wrap p-5 text-3xl leading-normal sm:text-4xl lg:text-5xl"
+            "flex flex-wrap p-5 text-3xl leading-normal  sm:text-4xl lg:text-5xl"
           }>
           {words.map((word, i) => {
             const start = i / words.length;
