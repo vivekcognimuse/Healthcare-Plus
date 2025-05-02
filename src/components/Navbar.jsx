@@ -14,6 +14,8 @@ const navItems = [
   { name: "About", href: "/about" },
   { name: "Careers", href: "/careers" },
   { name: "News", href: "/news" },
+  { name: "coming Soon", href: "/coming-soon" },
+  { name: "404", href: "/404" },
 ];
 
 const Navbar = () => {
@@ -23,10 +25,10 @@ const Navbar = () => {
 
   return (
     <div
-      className="fixed flex flex-col z-[999] lg:px-8 px-4 top-4 left-0 w-full transition-all duration-300"
+      className="fixed flex flex-col z-[99]  px-4   top-4 left-0 w-full transition-all duration-300"
       aria-label="Main navigation">
       <div
-        className={`mx-auto max-w-[1480px] w-full rounded-32 px-4 bg-gradient-to-r from-white/80 to-white/20 backdrop-blur-[30px] shadow-elevated ${
+        className={`mx-auto max-w-[1420px]  w-full rounded-32 px-4 bg-gradient-to-r from-white/80 to-white/20 backdrop-blur-[30px] shadow-elevated ${
           isOpen ? "pb-4" : ""
         } transition-all duration-300`}>
         <div className="flex justify-between items-center py-4">

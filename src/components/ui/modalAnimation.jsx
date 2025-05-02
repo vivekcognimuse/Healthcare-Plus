@@ -1,7 +1,11 @@
+"use client";
 import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 // ModalWrapper component that handles animations for modals
 export default function ModalWrapper({ isOpen, onClose, children }) {
+  const contentRef = useRef(null);
+
   // Animation variants for the backdrop
   const backdropVariants = {
     hidden: { opacity: 0 },
@@ -51,14 +55,53 @@ export default function ModalWrapper({ isOpen, onClose, children }) {
     },
   };
 
+  // Add event listeners for wheel events
+  useEffect(() => {
+    const handleWheel = (e) => {
+      // This prevents the wheel event from propagating to parent elements
+      e.stopPropagation();
+
+      // Let the default scroll behavior continue
+      // This is key - we're not preventing default, just stopping propagation
+    };
+
+    const contentElement = contentRef.current;
+    if (contentElement && isOpen) {
+      contentElement.addEventListener("wheel", handleWheel, { passive: true });
+
+      return () => {
+        contentElement.removeEventListener("wheel", handleWheel);
+      };
+    }
+  }, [isOpen]);
+
+  // Prevent body scrolling when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      // Save the current scroll position
+      const scrollY = window.scrollY;
+
+      // Add styles to body to prevent scrolling
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
+
+      return () => {
+        // Restore scrolling when component unmounts
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.width = "";
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [isOpen]);
+
   return (
-    // AnimatePresence must be outside the conditional to monitor
-    // when elements are being removed from the DOM
     <AnimatePresence mode="wait">
       {isOpen && (
         <motion.div
           key="modal-backdrop"
-          className="fixed inset-0 z-[999] bg-black bg-opacity-50 flex items-center justify-center"
+          className="fixed inset-0 z-[999] h-screen  flex items-center justify-center"
           variants={backdropVariants}
           initial="hidden"
           animate="visible"
@@ -67,14 +110,18 @@ export default function ModalWrapper({ isOpen, onClose, children }) {
           {/* Modal container - prevents click propagation to backdrop */}
           <motion.div
             key="modal-content"
-            className="z-50 w-full h-full flex items-center justify-center"
+            className="z-50 max-w-full max-h-screen w-full flex items-center justify-center py-6 "
             onClick={(e) => e.stopPropagation()}
             variants={modalVariants}
             initial="hidden"
             animate="visible"
             exit="exit">
-            {/* Your modal content goes here */}
-            {children}
+            {/* Scrollable content container */}
+            <div
+              ref={contentRef}
+              className="max-h-screen overflow-y-auto w-full ">
+              {children}
+            </div>
           </motion.div>
         </motion.div>
       )}

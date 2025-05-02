@@ -6,6 +6,7 @@ import Link from "next/link";
 import React from "react";
 import logo from "@/../public/logo.svg";
 import { X } from "lucide-react";
+import ModalWrapper from "@/components/ui/modalAnimation";
 const SubmitModal = () => {
   const { showSuccessModal, closeSuccessModal } = useModal();
 
@@ -14,8 +15,8 @@ const SubmitModal = () => {
   return (
     <ModalWrapper isOpen={showSuccessModal} onClose={closeSuccessModal}>
       <div className="fixed inset-0 bg-[url('/assets/contactImage.webp')]   bg-cover bg-no-repeat bg-center  bg-opacity-30  z-[999]">
-        <div className="w-full h-full flex items-center justify-center bg-white/40 backdrop-blur-[30px]">
-          <div className=" p-8 max-w-[1480px] w-full mx-auto rounded-lg ">
+        <div className="w-full h-full flex items-center justify-center bg-white/60 backdrop-blur-[30px]">
+          <div className=" p-8 max-w-[1420px] w-full mx-auto rounded-lg ">
             <div className="flex justify-between items-center mb-6">
               <div className="flex items-center">
                 <Image

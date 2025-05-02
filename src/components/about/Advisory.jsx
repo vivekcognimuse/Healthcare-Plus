@@ -15,7 +15,7 @@ const AdvisoryBoard = () => {
         Advisory <br />
         <span className="text-black/80 font-light"> Board </span>
       </h3>
-      <div className="flex flex-wrap justify-center gap-8">
+      <div className="flex flex-wrap  justify-center gap-8">
         {ADVISORS.map((advisor) => (
           <AdvisorCard key={advisor.id} advisor={advisor} />
         ))}
@@ -27,18 +27,18 @@ const AdvisoryBoard = () => {
 const AdvisorCard = ({ advisor }) => {
   return (
     <motion.div
-      className="relative overflow-hidden hover:scale-105 transition rounded-32 w-64 cursor-pointer"
+      className="relative overflow-hidden  shadow-elevated  hover:scale-105 transition rounded-32 w-64 cursor-pointer"
       whileHover="hover"
       initial="initial">
       {/* Image container with hover effect */}
       <motion.div
-        className="rounded-xl   shadow-md"
+        className="rounded-xl   "
         variants={{
           hover: { scale: 1.05 },
           initial: { scale: 1 },
         }}
         transition={{ duration: 0.3 }}>
-        <div className="relative  h-72 w-full">
+        <div className="relative shadow-elevated   h-72 w-full">
           <Image
             src={advisor.image}
             alt={advisor.name}

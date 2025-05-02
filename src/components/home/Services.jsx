@@ -24,7 +24,7 @@ const Services = () => {
       description:
         "Connect with Tala's AI agent anytime, anywhere - 24x7 access.",
       image: image1, // Path to your image
-      icon: CalendarRange, // Path to your icon image
+      iconSrc: "teenyicons:appointments-outline", // Path to your icon image
     },
     {
       id: 2,
@@ -32,7 +32,7 @@ const Services = () => {
       description:
         "Get support from a world-class team of licensed clinicians for any health condition.",
       image: image2,
-      icon: Headphones,
+      iconSrc: "vaadin:headphones",
     },
     {
       id: 3,
@@ -40,7 +40,7 @@ const Services = () => {
       description:
         "Visit nearby clinics for bloodwork, diagnostics, or in-person testing - seamlessly integrated.",
       image: image3,
-      icon: Hospital,
+      iconSrc: "uis:clinic-medical",
     },
   ];
   return (

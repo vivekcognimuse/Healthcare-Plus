@@ -19,7 +19,7 @@ export default function Button({
     <button
       type={type}
       className={cn(
-        "inline-flex font-normal cursor-pointer items-center text-xl justify-center rounded-32 text-nowrap  transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background  px-16 py-2",
+        "inline-flex font-normal cursor-pointer lg:hover:scale-105 items-center text-xl justify-center rounded-32 text-nowrap  transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background  px-16 py-2",
         buttonVariants[variant],
         className
       )}

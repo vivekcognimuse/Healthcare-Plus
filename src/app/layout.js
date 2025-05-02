@@ -8,6 +8,7 @@ import CrumplerHealthForm from "@/components/modal/contact/ContactModal";
 import SubmitModal from "@/components/modal/contact/FormSubmitModal";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import SmoothScroll from "@/components/ui/smoothScroll";
+import GoogleAnalytics from "@/components/Google-Analytics";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -23,6 +24,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <GoogleAnalytics />
       <body
         className={`${outfit.variable} antialiased flex flex-col items-center`}>
         <SmoothScroll>

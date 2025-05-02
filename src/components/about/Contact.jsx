@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "@/components/ui/Button";
+import Link from "next/link";
 
 const Contact = () => {
   return (
@@ -8,7 +9,9 @@ const Contact = () => {
         Join us in delivering
         <span className="text-black"> better health </span>
       </p>
-      <Button>Become a Partner</Button>
+      <Link href="/careers">
+        <Button>Become a Partner</Button>
+      </Link>
     </div>
   );
 };

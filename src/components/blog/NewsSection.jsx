@@ -35,7 +35,7 @@ const BlogCard = ({ blog, isFeatured = false }) => {
 
   if (isFeatured) {
     return (
-      <div className="border-b border-gray-200 pb-8 mb-8">
+      <div className="border-b  border-gray-200 pb-8 mb-8">
         <div className="mb-2">
           <span className="text-gray-700">{formatDate(blog.PublishDate)}</span>
         </div>
@@ -52,8 +52,7 @@ const BlogCard = ({ blog, isFeatured = false }) => {
 
         <Link
           href={`/news/${blog.Slug}`}
-          className="inline-block border border-gray-800 rounded-full px-6 py-2 text-gray-800 hover:bg-gray-800 hover:text-white transition-colors"
-        >
+          className="inline-block border border-gray-800 rounded-full px-6 py-2 text-gray-800 hover:bg-gray-800 hover:text-white transition-colors">
           Read More
         </Link>
       </div>
@@ -61,7 +60,7 @@ const BlogCard = ({ blog, isFeatured = false }) => {
   }
 
   return (
-    <div className="border-b border-gray-200 py-4">
+    <div className="border-b  border-gray-200 py-4">
       <div className="flex justify-between items-center">
         <div>
           <h3 className="font-medium">
@@ -76,8 +75,7 @@ const BlogCard = ({ blog, isFeatured = false }) => {
         </div>
         <Link
           href={`/news/${blog.Slug}`}
-          className="bg-white rounded-md px-4 py-2 text-sm border hover:bg-gray-50"
-        >
+          className="bg-white rounded-md px-4 py-2 text-sm border hover:bg-gray-50">
           Read More
         </Link>
       </div>
