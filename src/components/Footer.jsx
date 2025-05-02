@@ -23,7 +23,7 @@ export default function Footer({ isBlackTheme }) {
 
   return (
     <footer className={`w-full p-side  border-t mt-16 ${borderColor} flex `}>
-      <div className="max-w-[1480px] mx-auto  w-full  py-6 ">
+      <div className="max-w-[1420px] mx-auto  w-full  py-6 ">
         <div className="flex flex-col md:flex-row last-of-type sm:mb-44 mb-24 justify-between items-center gap-6 md:gap-0">
           {/* Logo with Image */}
           <Link

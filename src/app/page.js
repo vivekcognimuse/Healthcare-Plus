@@ -14,9 +14,9 @@ import RevealAnimation from "@/components/ui/revealAnimation";
 
 export default function Home() {
   return (
-    <div className="max-w-[1480px]  md:px-0 mx-auto pt-28 ">
+    <div className="max-w-[1420px] px-0 mx-auto pt-28 ">
       <Hero />
-      <div className="p-side ">
+      <div className="  p-side">
         <About />
         <ProblemStatement />
         <RevealAnimation type="slide" direction="up">

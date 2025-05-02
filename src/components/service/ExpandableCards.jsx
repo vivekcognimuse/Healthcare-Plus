@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
-
+import { Icon } from "@iconify/react";
 const ExpandableCards = ({ services }) => {
   const [activeCardId, setActiveCardId] = useState(1);
   const [containerHeight, setContainerHeight] = useState(0);
@@ -50,7 +50,7 @@ const ExpandableCards = ({ services }) => {
         style={{
           height: containerHeight > 0 ? `${containerHeight}px` : "auto",
         }}>
-        {services.map(({ id, title, description, image, icon: Icon }) => {
+        {services.map(({ id, title, description, image, iconSrc }) => {
           const isActive = id === activeCardId;
           const flexBasis = calculateFlexBasis(isActive, services.length);
 
@@ -115,7 +115,9 @@ const ExpandableCards = ({ services }) => {
                     className={`w-12 h-12 mb-4  border border-white rounded-full flex items-center justify-center ${
                       isActive ? "bg-transparent" : "bg-black"
                     }`}>
-                    {Icon && <Icon className="w-8 h-8 text-white" />}
+                    {Icon && (
+                      <Icon icon={iconSrc} className="w-8 h-8 text-white" />
+                    )}
                   </div>
 
                   {/* Title */}

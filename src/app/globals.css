@@ -50,8 +50,8 @@
 @layer base {
   body {
     @apply leading-normal;
+    font-family: var(--font-outfit), sans-serif;
   }
-
   h1,
   h2,
   h3,
@@ -69,7 +69,7 @@
     @apply pt-8 md:pt-16;
   }
   .p-side {
-    @apply px-4 sm:px-8 md:px-16 lg:px-20;
+    @apply px-4 sm:px-8 md:px-16 lg:px-20 2xl:px-0;
   }
 }
 
@@ -110,4 +110,10 @@ html::-webkit-scrollbar-thumb:hover {
     background-color: transparent !important;
     transition: background-color 9999s ease-in-out 0s;
   }
+}
+
+.scrollbar-custom {
+  scrollbar-width: thin;
+  scrollbar-color: #9b53db black;
+  background-color: white;
 }

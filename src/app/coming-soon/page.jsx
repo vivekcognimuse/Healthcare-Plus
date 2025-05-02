@@ -19,13 +19,13 @@ const page = () => {
               We're working hard behind the scenes to bring you an exciting new
               experience. Stay tuned — you won't want to miss it!
             </p>
-            <div className="flex mt-8 gap-x-4">
+            <div className="flex mt-8 flex-col md:flex-row  gap-4">
               <input
                 type="text"
                 name=""
                 id=""
                 placeholder="user@example.com"
-                className="w-full text-lg px-8 border border-black rounded-32"
+                className="w-full text-lg px-8 py-2 border border-black rounded-32"
               />
               <Button className="">Notify Me</Button>
             </div>

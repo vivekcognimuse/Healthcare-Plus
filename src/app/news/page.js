@@ -102,7 +102,7 @@ export default async function NewsPage({ searchParams }) {
 
   return (
     <>
-      <div className=" max-w-[1480px] p-side mx-auto min-h-screen  md:pt-[10%]">
+      <div className=" max-w-[1420px] p-side mx-auto min-h-screen  md:pt-[10%]">
         <h1 className="text-7xl font-light text-black/80 mb-12">What's New?</h1>
 
         {/* Featured Articles Grid */}

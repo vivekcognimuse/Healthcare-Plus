@@ -70,7 +70,7 @@ export default async function BlogDetail({ params }) {
 
   return (
     <>
-      <div className=" max-w-[1480px] p-side mx-auto min-h-screen">
+      <div className=" max-w-[1420px] p-side mx-auto min-h-screen">
         {/* Hero Image Section - 60% of screen height */}
         {blog.Thumbnail && blog.Thumbnail.length > 0 && (
           <div className="relative w-full h-[60vh] overflow-hidden">

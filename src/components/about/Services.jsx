@@ -16,7 +16,7 @@ const Services = () => {
       description:
         "Developed by top AI scientists and clinicians using cutting-edge medical research.",
       image: image1, // Path to your image
-      icon: Timer, // Path to your icon image
+      iconSrc: "simple-icons:buildkite", // Path to your icon image
     },
     {
       id: 2,
@@ -24,7 +24,7 @@ const Services = () => {
       description:
         "Trained on the most comprehensive medical datasets to ensure precision and reliability.",
       image: image2,
-      icon: Timer,
+      iconSrc: "fluent:data-area-20-filled",
     },
     {
       id: 3,
@@ -32,13 +32,13 @@ const Services = () => {
       description:
         "Proudly supported by world-class investors in healthcare and technology.",
       image: image3,
-      icon: Timer,
+      iconSrc: "fluent-mdl2:party-leader",
     },
   ];
   return (
     <div>
       <RevealAnimation type="slide" direction="left" delay={0.5}>
-        <p className="w-fit mb-4 font-light px-4 py-1 bg-black text-white rounded-32">
+        <p className="w-fit mb-4 mt-16 font-light px-4 py-1 bg-black text-white rounded-32">
           Expertise
         </p>
         <h3 className="text-black/80 leading-normal text-4xl mb-8 sm:text-5xl  md:text-6xl">
@@ -49,28 +49,28 @@ const Services = () => {
       <RevealAnimation type="slide" direction="up" delay={0.5}>
         <ExpandableCards services={servicesData} />
       </RevealAnimation>
-      <RevealAnimation type="slide" direction="up" delay={0.5}>
-        <p className="w-fit mb-4 font-light px-4 py-1 bg-black text-white rounded-32">
+      <RevealAnimation type="slide" direction="left" delay={0.5}>
+        <p className="w-fit mb-4 font-light px-4 mt-12 py-1 bg-black text-white rounded-32">
           Our Solution
         </p>
-        <h3 className="text-black/80 leading-normal text-4xl mb-8 sm:text-5xl  md:text-6xl">
-          Get A Real
-          <span className="text-black"> Diagnosis</span>
-        </h3>
+        <p className=" text-3xl mb-8 text-black-800 sm:text-4xl md:text-6xl">
+          Get A<span className="text-black"> Real Diagnosis </span>
+        </p>{" "}
       </RevealAnimation>
-      <RevealAnimation type="slide" direction="up" delay={0.5}>
-        <p className="text-black-800 font-light mb-8 md:max-w-7/12 max-w-8/12 ml-auto md:text-4xl text-lg sm:text-2xl">
-          {" "}
-          <span className="text-black"></span>
-          Tala Health is{" "}
-          <span className="text-black"> built with the patient in mind </span>,
-          combining the leading
-          <span className="text-black">
+      <RevealAnimation type="slide" direction="right" delay={0.5}>
+        <p className="text-black-800 font-light leading-normal  md:max-w-9/12 max-w-9/12 ml-auto md:text-4xl text-lg sm:text-2xl">
+          Instead of worrying over worst-case scenarios from searching your
+          symptoms online,
+          <span className="text-black font-normal">
             {" "}
-            artificial intelligence research
+            get a real diagnosis in minutes with Tala Health.
           </span>{" "}
-          with top tier{" "}
-          <span className="text-black"> human licensed clinical support </span>
+          If you need further care, our team will seamlessly connect you to the
+          <span className="text-black font-normal">
+            {" "}
+            right clinician, specialist, or in-person site
+          </span>{" "}
+          for further testing.
         </p>{" "}
       </RevealAnimation>
     </div>

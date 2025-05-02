@@ -20,7 +20,7 @@ export const EnhancedTextReveal = ({ text, emphasisWords, className }) => {
       <div className={"sticky top-0 flex h-[50%] items-center  py-[5rem]"}>
         <span
           className={
-            "flex flex-wrap p-5 text-3xl leading-normal  sm:text-4xl lg:text-5xl"
+            "flex flex-wrap p-5 text-[1.75rem] leading-normal  sm:text-4xl lg:text-5xl"
           }>
           {words.map((word, i) => {
             const start = i / words.length;
