@@ -63,7 +63,7 @@ const Services = () => {
           symptoms online,
           <span className="text-black font-normal">
             {" "}
-            get a real diagnosis in minutes with Tala Health.
+            get a real diagnosis in minutes with Healthcare Plus.
           </span>{" "}
           If you need further care, our team will seamlessly connect you to the
           <span className="text-black font-normal">

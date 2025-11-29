@@ -1,18 +1,42 @@
+/* Import Poppins from Google Fonts - MUST be first to avoid parse errors */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
+
+/* Pathway Extreme is a custom font. To fully enable it, place the font files
+   in /public/fonts/Pathway-Extreme.woff2 and /public/fonts/Pathway-Extreme.woff
+   The @font-face below will attempt to load them; if not present, the fallback
+   fonts will be used (Poppins, sans-serif). */
+@font-face {
+  font-family: 'Pathway Extreme';
+  src: url('/fonts/Pathway-Extreme.woff2') format('woff2'),
+       url('/fonts/Pathway-Extreme.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pathway Extreme';
+  src: url('/fonts/Pathway-Extreme-Semibold.woff2') format('woff2'),
+       url('/fonts/Pathway-Extreme-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
 
 @theme {
   /* primary */
-  --color-purple-50: #faf6fe;
-  --color-purple-100: #f3eafd;
-  --color-purple-200: #e9d9fb;
-  --color-purple-300: #d8bbf7;
-  --color-purple-400: #c090f0;
-  --color-purple-500: #a965e7;
-  --color-purple-600: #9b53db;
-  --color-purple-700: #7e33bd;
-  --color-purple-800: #6b2e9b;
-  --color-purple-900: #57267d;
-  --color-purple-950: #3a105b;
+  --color-purple-50: #155DFC;
+  --color-purple-100: #155DFC;
+  --color-purple-200: #155DFC;
+  --color-purple-300: #155DFC;
+  --color-purple-400: #155DFC;
+  --color-purple-500: #155DFC;
+  --color-purple-600: #155DFC;
+  --color-purple-700: #155DFC;
+  --color-purple-800: #155DFC;
+  --color-purple-900: #155DFC;
+  --color-purple-950: #155DFC;
 
   /* Black */
   --color-black-50: #f6f6f6;
@@ -40,6 +64,24 @@
   --color-white-900: #3d3d3d;
   --color-white-950: #292929;
 
+  /* New color palette requested */
+  --color-primary: #155DFC; /* Primary Blue */
+  --color-primary-80: rgba(21,93,252,0.8);
+  --color-primary-10: rgba(21,93,252,0.1);
+
+  --color-black: #1E1E1E;
+  --color-black-60: rgba(30,30,30,0.6);
+
+  --color-red: #E60004;
+
+  --color-white: #FAFAFA;
+  --color-white-80: rgba(250,250,250,0.8);
+  --color-white-20: rgba(250,250,250,0.2);
+
+  /* font families */
+  --font-heading: 'Pathway Extreme', 'Poppins', sans-serif;
+  --font-body: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+
   /* shadow */
   --shadow-elevated: 0px 6px 6px 0px rgba(0, 0, 0, 0.1);
 
@@ -50,7 +92,8 @@
 @layer base {
   body {
     @apply leading-normal;
-    font-family: var(--font-outfit), sans-serif;
+    font-family: var(--font-body);
+    color: var(--color-black);
   }
   h1,
   h2,
@@ -58,7 +101,8 @@
   h4,
   h5,
   h6 {
-    @apply font-normal;
+    font-family: var(--font-heading);
+    font-weight: 600;
   }
 
   a {
@@ -73,10 +117,11 @@
   }
 }
 
+
 html {
   scrollbar-width: thin; /* Firefox */
-  scrollbar-color: #9b53db transparent; /* Firefox */
-  @apply selection:bg-purple-400;
+  scrollbar-color: #155DFC transparent; /* Firefox */
+  @apply selection:bg-primary;
 }
 
 html::-webkit-scrollbar {
@@ -88,17 +133,112 @@ html::-webkit-scrollbar-track {
   background: transparent;
 }
 
+
 html::-webkit-scrollbar-thumb {
-  background-color: #9b53db;
+  background-color: #155DFC;
   border-radius: 20px;
 }
 
+
 html::-webkit-scrollbar-thumb:hover {
-  background-color: #7e33bd;
+  background-color: #155DFC;
 }
 
 .gradient {
   @apply bg-[url('/assets/background.png')] bg-cover bg-no-repeat bg-center;
+}
+
+/* Color utility classes mapped to the new color variables */
+.text-primary { color: var(--color-primary); }
+.text-primary-80 { color: var(--color-primary-80); }
+.bg-primary { background-color: var(--color-primary); }
+.bg-primary-10 { background-color: var(--color-primary-10); }
+.border-primary { border-color: var(--color-primary); }
+.text-black-custom { color: var(--color-black); }
+.text-white-custom { color: var(--color-white); }
+.text-red-custom { color: var(--color-red); }
+
+/* Typography classes (H1..H3, P1..P3, ST) with responsive sizes */
+.h1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 32px; /* default mobile small */
+  line-height: 1.05;
+}
+
+/* Helper class for hero-specific usage to ensure typographic preferences are applied */
+.hero-title {
+  font-family: var(--font-heading) !important;
+  font-weight: 800 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.h2 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.08;
+}
+.h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.1;
+}
+.p1 { font-family: var(--font-body); font-size: 18px; font-weight: 400; }
+.p2 { font-family: var(--font-body); font-size: 16px; font-weight: 400; }
+.p3 { font-family: var(--font-body); font-size: 16px; font-weight: 400; }
+.st { font-family: var(--font-body); font-size: 12px; font-weight: 400; }
+
+/* Breakpoints: expand sizes as screen grows */
+@media (min-width: 481px) {
+  .h1 { font-size: 48px; }
+  .h2 { font-size: 36px; }
+  .h3 { font-size: 24px; }
+  .p1 { font-size: 18px; }
+  .p2 { font-size: 16px; }
+  .p3 { font-size: 16px; }
+  .st { font-size: 12px; }
+}
+
+@media (min-width: 768px) {
+  .h1 { font-size: 56px; }
+  .h2 { font-size: 40px; }
+  .h3 { font-size: 28px; }
+  .p1 { font-size: 20px; }
+  .p2 { font-size: 18px; }
+  .p3 { font-size: 16px; }
+  .st { font-size: 14px; }
+}
+
+@media (min-width: 1025px) {
+  .h1 { font-size: 64px; }
+  .h2 { font-size: 42px; }
+  .h3 { font-size: 26px; }
+  .p1 { font-size: 20px; }
+  .p2 { font-size: 18px; }
+  .p3 { font-size: 16px; }
+  .st { font-size: 14px; }
+}
+
+@media (min-width: 1281px) {
+  .h1 { font-size: 72px; }
+  .h2 { font-size: 48px; }
+  .h3 { font-size: 30px; }
+  .p1 { font-size: 22px; }
+  .p2 { font-size: 20px; }
+  .p3 { font-size: 18px; }
+  .st { font-size: 16px; }
+}
+
+@media (min-width: 1921px) {
+  .h1 { font-size: 80px; }
+  .h2 { font-size: 54px; }
+  .h3 { font-size: 32px; }
+  .p1 { font-size: 24px; }
+  .p2 { font-size: 22px; }
+  .p3 { font-size: 20px; }
+  .st { font-size: 18px; }
 }
 
 /* Layer 3: More utilities */

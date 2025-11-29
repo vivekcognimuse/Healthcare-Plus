@@ -2,39 +2,41 @@
 "use client";
 
 import Footer from "@/components/Footer";
-import About from "@/components/home/About";
+
 import Contact from "@/components/home/Contact";
 
 import Hero from "@/components/home/Hero";
-import ProblemStatement from "@/components/home/ProblemStatement";
-import Services from "@/components/home/Services";
 
-import InsuranceMarquee from "@/components/ui/imageMarquee";
+
+import ServicesSection from "@/components/service/ServicesSection";
+import Specialists from "@/components/home/Specialists";
+
 import RevealAnimation from "@/components/ui/revealAnimation";
-
+import TestimonialsSection from "@/components/TestimonialsSection";
+import CaseStudiesSection from "@/components/CaseStudiesSection";
+import PartnersSection from "@/components/PartnersSection";
+import FAQSection from "@/components/FAQSection";
 export default function Home() {
   return (
-    <div className="max-w-[1420px] px-0 mx-auto pt-28 ">
+    <>
+      {/* Full-bleed hero outside of the centered container */}
       <Hero />
-      <div className="  p-side">
-        <About />
-        <ProblemStatement />
+
+      <div className=" max-w-[1420px] mx-auto pt-28 p-side">
         <RevealAnimation type="slide" direction="up">
-          <div className="shadow-elevated rounded-32 w-full p-4 sm:p-6 md:p-10 gradient backdrop-blur-[30px] mx-auto">
-            <Services />
-            <RevealAnimation type="slide" direction="up" delay={0.5}>
-              <InsuranceMarquee />
-            </RevealAnimation>
-            <RevealAnimation type="slide" direction="up" delay={0.5}>
-              <Contact />
-            </RevealAnimation>
-          </div>
+          <ServicesSection />
+          <Specialists />
+          <TestimonialsSection />
+          <CaseStudiesSection />
+          <PartnersSection />
+          <FAQSection />
+          <RevealAnimation type="slide" direction="up" delay={0.5}>
+            <Contact />
+          </RevealAnimation>
         </RevealAnimation>
       </div>
 
-      {/* <Contact /> */}
-
       <Footer />
-    </div>
+    </>
   );
 }

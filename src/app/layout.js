@@ -14,16 +14,19 @@ const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-});
+}); ``
 
 export const metadata = {
-  title: "Tala Health",
+  title: "Healthcare Plus",
   description: "",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+      </head>
       <GoogleAnalytics />
       <body
         className={`${outfit.variable} antialiased flex flex-col items-center`}>

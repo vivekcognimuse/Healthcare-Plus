@@ -171,25 +171,27 @@ const CrumplerHealthForm = () => {
                 <div className="flex items-center">
                   <Image
                     src={logo}
-                    alt="Tala Health logo"
+                    alt="Healthcare Plus logo"
                     className="h-6 w-fit"
                   />
                 </div>
                 <button
                   onClick={closeFormModal}
                   className="text-black/80 cursor-pointer"
-                  aria-label="Close form">
+                  aria-label="Close form"
+                >
                   <X size={24} />
                 </button>
               </div>
 
               <p className="text-black/80 mb-4">
-                Be the first to know when Tala Health launches near you.
+                Be the first to know when Healthcare Plus launches near you.
               </p>
 
               <h2
                 id="form-heading"
-                className="text-4xl text-black/80 font-light mb-8">
+                className="text-4xl text-black/80 font-light mb-8"
+              >
                 We're not live in your region yet — join our wait-list to{" "}
                 <span className="font-normal text-black">stay in the loop</span>
               </h2>
@@ -197,12 +199,14 @@ const CrumplerHealthForm = () => {
               <form
                 onSubmit={onSubmit}
                 aria-labelledby="form-heading"
-                noValidate>
+                noValidate
+              >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
                     <label
                       htmlFor="firstName"
-                      className="block text-black/80 font-normal mb-4">
+                      className="block text-black/80 font-normal mb-4"
+                    >
                       First Name
                     </label>
                     <input
@@ -227,7 +231,8 @@ const CrumplerHealthForm = () => {
                       <p
                         id="firstName-error"
                         className="text-red-500 text-sm mt-1"
-                        role="alert">
+                        role="alert"
+                      >
                         {errors.firstName}
                       </p>
                     )}
@@ -235,7 +240,8 @@ const CrumplerHealthForm = () => {
                   <div>
                     <label
                       htmlFor="lastName"
-                      className="block text-black/80 font-normal mb-4">
+                      className="block text-black/80 font-normal mb-4"
+                    >
                       Last Name
                     </label>
                     <input
@@ -260,7 +266,8 @@ const CrumplerHealthForm = () => {
                       <p
                         id="lastName-error"
                         className="text-red-500 text-sm mt-1"
-                        role="alert">
+                        role="alert"
+                      >
                         {errors.lastName}
                       </p>
                     )}
@@ -268,7 +275,8 @@ const CrumplerHealthForm = () => {
                   <div>
                     <label
                       htmlFor="organization"
-                      className="block text-black/80 font-normal mb-4">
+                      className="block text-black/80 font-normal mb-4"
+                    >
                       Organization
                     </label>
                     <input
@@ -286,7 +294,8 @@ const CrumplerHealthForm = () => {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-black/80 font-normal mb-4">
+                      className="block text-black/80 font-normal mb-4"
+                    >
                       Email
                     </label>
                     <input
@@ -311,7 +320,8 @@ const CrumplerHealthForm = () => {
                       <p
                         id="email-error"
                         className="text-red-500 text-sm mt-1"
-                        role="alert">
+                        role="alert"
+                      >
                         {errors.email}
                       </p>
                     )}
@@ -325,7 +335,8 @@ const CrumplerHealthForm = () => {
                     </legend>
                     <div
                       className="flex flex-wrap gap-4 mt-2"
-                      role="radiogroup">
+                      role="radiogroup"
+                    >
                       <label className="flex items-center">
                         <div className="relative">
                           <input
@@ -401,7 +412,8 @@ const CrumplerHealthForm = () => {
                 <div className="mb-6">
                   <label
                     htmlFor="message"
-                    className="block text-black/80 font-normal mb-4">
+                    className="block text-black/80 font-normal mb-4"
+                  >
                     Your Message
                   </label>
                   <input
@@ -425,7 +437,8 @@ const CrumplerHealthForm = () => {
                     <p
                       id="message-error"
                       className="text-red-500 text-sm mt-1"
-                      role="alert">
+                      role="alert"
+                    >
                       {errors.message}
                     </p>
                   )}
@@ -452,7 +465,8 @@ const CrumplerHealthForm = () => {
                             viewBox="0 0 12 9"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true">
+                            aria-hidden="true"
+                          >
                             <path
                               d="M1 4L4 7L11 1"
                               stroke="white"
@@ -475,7 +489,8 @@ const CrumplerHealthForm = () => {
                   type="submit"
                   className="w-full"
                   disabled={isSubmitting}
-                  aria-busy={isSubmitting}>
+                  aria-busy={isSubmitting}
+                >
                   {isSubmitting ? "Processing..." : "Join the Wait-list"}
                 </Button>
               </form>

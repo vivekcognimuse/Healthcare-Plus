@@ -22,7 +22,7 @@ const SubmitModal = () => {
                 <Image
                   src={logo}
                   className="h-6 w-fit"
-                  alt="tala health logo"
+                  alt="Healthcare Plus logo"
                 />
               </div>
               <button onClick={closeSuccessModal} className="text-gray-700">

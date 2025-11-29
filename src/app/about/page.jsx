@@ -30,7 +30,7 @@ const page = () => {
             treatment,
             <span className="text-black font-normal">
               {" "}
-              Tala Health&apos;s AI agent ensures that care reaches you
+              Healthcare Plus&apos;s AI agent ensures that care reaches you
             </span>
             — wherever you are, whenever you need it.
           </p>

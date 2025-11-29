@@ -6,7 +6,7 @@ import React from "react";
 
 const page = () => {
   return (
-    <div className="  bg-[url('/assets/contactImage.webp')] bg-cover bg-bottom bg-no-repeat">
+    <div className="  bg-[url('/Hero-bg.png')] bg-cover bg-bottom bg-no-repeat">
       <div className="flex justify-center  items-center h-screen">
         <RevealAnimation type="slide" direction="up" delay={0.5}>
           <div className="bg-white/70 backdrop-blur-[30px] px-5 py-11 rounded-32  max-w-5xl ">

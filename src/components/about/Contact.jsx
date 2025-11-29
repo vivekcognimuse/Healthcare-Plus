@@ -1,17 +1,16 @@
 import React from "react";
 import Button from "@/components/ui/Button";
-import Link from "next/link";
+import { useModal } from "@/context/ContactContext";
 
 const Contact = () => {
+  const { openFormModal } = useModal();
   return (
     <div className="flex flex-col my-32 items-center justify-center">
       <p className="text-black-600 text-center font-light mb-8 text-3xl sm:text-5xl lg:text-6xl">
         Join us in delivering
         <span className="text-black"> better health </span>
       </p>
-      <Link href="/careers">
-        <Button>Become a Partner</Button>
-      </Link>
+      <Button onClick={() => openFormModal()}>Become a Partner</Button>
     </div>
   );
 };
