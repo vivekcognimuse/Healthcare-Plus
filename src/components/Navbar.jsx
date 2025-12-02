@@ -154,7 +154,7 @@ const Navbar = () => {
             </button>
 
             <button
-              className="px-3 py-1.5 hover:bg-gray-100 rounded-md transition-colors border border-gray-300"
+              className="px-3 py-1.5 cursor-pointer hover:bg-gray-600 rounded-md transition-colors border border-gray-300"
               aria-label="Language"
             >
               <span
@@ -296,7 +296,7 @@ const Navbar = () => {
                 </button>
 
                 <button
-                  className="px-3 py-1.5 hover:bg-gray-100 rounded-md transition-colors border border-gray-300"
+                  className="px-3 py-1.5 hover:bg-black rounded-md transition-colors border border-gray-300"
                   aria-label="Language"
                 >
                   <span
