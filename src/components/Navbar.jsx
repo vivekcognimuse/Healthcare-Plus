@@ -282,9 +282,9 @@ const Navbar = () => {
                       ? "bg-red-100 hover:bg-red-200"
                       : "bg-red-600 hover:bg-red-700"
                   } rounded-full transition-colors`}
-                  aria-label="YouTube"
+                  aria-label="Emergency"
                 >
-                  <Youtube
+                  <Ambulance
                     className={`h-5 w-5 ${
                       atFooter
                         ? "text-white"
